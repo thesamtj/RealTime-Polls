@@ -5,10 +5,11 @@ const Pusher = require("pusher");
 
 const app = express();
 const port = process.env.PORT || 4000;
+
 const pusher = new Pusher({
-  appId: process.env.PUSHER_APP_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
+  appId: String(process.env.PUSHER_APP_ID),
+  key: String(process.env.PUSHER_KEY),
+  secret: String(process.env.PUSHER_SECRET),
   cluster: "eu",
   encrypted: true,
 });
@@ -25,10 +26,10 @@ app.use((req, res, next) => {
 });
 
 // Send votes
-app.post("/vote", (req, res) => {
+app.post('/vote', (req, res) => {
   const { body } = req;
   const { player } = body;
-  pusher.trigger("vote-channel", "vote", {
+  pusher.trigger('vote-channel', 'vote', {
     player,
   });
   res.json({ player });

@@ -26,8 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [
-              "../node_modules/pusher-js/dist/web/pusher.min.js",
-              "../node_modules/chart.js/src/chart.js"
+              "node_modules/pusher-js/dist/web/pusher.min.js"
             ]
           },
           "configurations": {
