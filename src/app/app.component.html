@@ -13,4 +13,10 @@
       <p>{{ player.assists }} assists</p>
     </li>
   </ul>
+  <div class="chart-box" *ngIf="voted">
+    <h2>How others voted</h2>
+    <canvas baseChart [data]="chartData"
+    [labels]="chartLabels" [chartType]="chartType">
+    </canvas>
+  </div>
 </div>

@@ -49,4 +49,9 @@ div {
       }
     }
   }
+  .chart-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
