@@ -2,10 +2,15 @@
   <h2>Vote for your player of the season</h2>
   <ul>
     <li *ngFor="let player of playerData">
-      <img [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName)" [ngClass]="getVoteClasses(player.shortName)">
-      <h4>{{player.name}}</h4>
-      <p>{{player.goals}} goals</p>
-      <p>{{player.assists}} assists</p>
+      <img
+        [src]="player.image"
+        [alt]="player.name"
+        (click)="castVote(player.shortName)"
+        [ngClass]="getVoteClasses(player.shortName)"
+      />
+      <h4>{{ player.name }}</h4>
+      <p>{{ player.goals }} goals</p>
+      <p>{{ player.assists }} assists</p>
     </li>
   </ul>
 </div>
