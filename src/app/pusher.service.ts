@@ -5,7 +5,7 @@ declare const Pusher: any;
 @Injectable()
 export class PusherService {
   constructor() {
-    var pusher = new Pusher('<PUSHER_KEY>', {
+    var pusher = new Pusher('6b7c029e024d168da10c', {
       cluster: 'eu',
       encrypted: true,
     });

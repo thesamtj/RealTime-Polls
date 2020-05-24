@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
     import { HttpClient } from '@angular/common/http';
+import { PusherService } from './pusher.service';
 
     @Component({
       selector: 'app-root',
@@ -12,8 +13,15 @@ import { Component, OnInit } from '@angular/core';
       vote = '';
       voted = false;
 
-      constructor(private http: HttpClient) {}
-      
+      constructor(private pusher: PusherService, private http: HttpClient) {}
+
+      ngOnInit() {
+        const channel = this.pusher.init();
+        channel.bind('vote', ({ player }) => {
+          this.voteCount[player] += 1;
+        });
+      }
+
       playerData = [
         {
           name: 'Mo. Salah',
@@ -68,8 +76,7 @@ import { Component, OnInit } from '@angular/core';
         };
       }
 
-      ngOnInit() {
-      }
+      
     }
   
 
