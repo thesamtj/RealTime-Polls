@@ -24,6 +24,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Send votes
+app.post("/vote", (req, res) => {
+  const { body } = req;
+  const { player } = body;
+  pusher.trigger("vote-channel", "vote", {
+    player,
+  });
+  res.json({ player });
+});
+
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
